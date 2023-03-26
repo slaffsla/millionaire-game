@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;600&display=swap');
+
+#root {
+    --Orange-120: #E87928;
+    --Orange-100: #FF8B37;
+    --Green-100: #47D867;
+    --Red-100: #EC6259;
+    --Black-100: #1C1C21;
+    --Black-40: #D0D0D8;
+    --Orange-80: #FFAC70;
+    --Orange-5: #FFF3EB;
+    --Green-5: #E6FAEA;
+    --Red-5: #FDEEED;
+    --Black-5: #F5F5F7;
+    --White-100: #FFFFFF
+}
+
+* {
+    margin: 0px;
+    font-family: "Inter", sans-serif;
+}
+
+.welcome-screen {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right bottom, var(--White-100) 50%, var(--Orange-5) 50.3%);
+}
+
+.welcome-screen__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.welcome-screen__title {
+    margin-top: 4vh;
+    margin-bottom: 20vh;
+    line-height: 116%;
+    font-weight: bolder;
+    font-size: 40px;
+    text-align: center;
+    color: var(Green-100);
+}
+
+h1 span {
+    display: block;
+}
+
+.welcome-screen__image {
+    height: 29vh;
+    margin-top: 2vh;
+    transform: translate(20px, 10px);
+}
+
+.welcome-screen__button {
+    margin-bottom: 2rem;
+    padding: 1rem 2rem;
+    background-color: var(--Orange-100);
+    border: none;
+    border-radius: 8px;
+    color: var(--White-100);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 116%;
+    min-width: 90vw;
+    min-height: 4rem;
+    font-weight: 600;
+    font-family: 'Inter';
+    -moz-transition: background-color .2s ease-out;
+    -o-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+}
+
+.welcome-screen__button:hover {
+    background-color: var(--Orange-120);
+}
+
+@media only screen and (min-width: 768px) {
+    .welcome-screen {
+        flex-direction: row;
+    }
+
+    .welcome-screen__image {
+        height: 36vh;
+        margin-top: 2vh;
+        margin-right: 4rem;
+        transform: translate(-50px, 10px);
+    }
+
+    .welcome-screen__content {
+        margin-top: 2rem;
+    }
+
+    .welcome-screen__button {
+        margin-bottom: 2rem;
+        font-size: 14px;
+        line-height: 116%;
+        min-width: 20vw;
+        min-height: 3rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .welcome-screen__image {
+        height: 36vh;
+        margin-top: 2vh;
+        margin-right: 4rem;
+        transform: translate(-100px, 10px);
+    }
+}
