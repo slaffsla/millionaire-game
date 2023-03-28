@@ -102,10 +102,10 @@ h1 span {
   background-color: var(--Black-40);
   transform: rotate(2deg);
 }
-/* 
+
 .back-button:hover {
   background-image: url(../images/Close.svg);
-} */
+}
 
 .game {
   height: 100%;
@@ -138,30 +138,30 @@ h1 span {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 2rem;
 }
 
 .game__answer {
-  width: 320px;
-  height: 57px;
-  font-size: 1rem;
+  width: 312px;
+  height: 56px;
+  font-size: 14px;
+  background-image: url('../images/Inactive.svg');
+  background-repeat: no-repeat;
   color: var(--Black-100);
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 800;
   text-align: left;
   cursor: pointer;
-  margin: 8px;
+  margin: 0px auto;
+  background-color: rgb(172, 172, 188);
+  background-size: cover;
   display: flex;
   align-items: center;
   position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  object-fit: contain;
 }
 
 .game__answer h5 {
   font-size: 16px;
-  text-indent: -200px;
+  text-indent: 36px;
   font-weight: 600;
   color: var(--Orange-100);
 }
@@ -176,7 +176,7 @@ h1 span {
 .game__answer::after {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 49%;
   height: 1px;
   border-top: 1px solid var(--Black-40);
   transform: translateY(0px);
@@ -192,56 +192,50 @@ h1 span {
   width: 200%;
 }
 
-.game__answer--text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: violet;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-align: center;
+.game__answer:hover {
+  background-image: url(../images/Hover.svg);
+}
+
+.game__answer:active {
+  background-image: url(../images/Hover.svg);
+}
+
+.game__answer:hover {
+  background-image: url(../images/Hover.svg);
+}
+
+.game__answer:hover {
+  background-image: url(../images/Hover.svg);
 }
 
 
 
+/*    ________________________________________________ */
 
 
-.game__answer::active {
-  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 3.9);
+button::hover, button:focus {
+  border-color: #187dbc;
+}
+
+button::active {
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, .2);
   top: 1px;
 }
 
+button.correct {
+  background-color: #28a745;
+  /* green */
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+button.incorrect {
+  background-color: #dc3545;
+  /* red */
+}
 
 
 /* || BIGGER SCREENS GO FURTHER */
 
 @media only screen and (min-width: 768px) {
-
-  .game {
-    display: flex;
-  }
-  .menu {
-    flex: 0 0 20%;
-  }
-  .question {
-    flex: 1;
-  }
-
 
   .welcome-screen {
     flex-direction: row;
@@ -276,20 +270,14 @@ h1 span {
     min-height: 3rem;
   }
 
-  /* .game__answer:focus {
+  .game__answer:focus {
     background-color: #f5a623;
     color: #fff;
-  } */
+  }
 
- /*  .game__answer {
-    width: 640px;
-    height: 113px;
-  } */
-
-  .game__answer::before,
-  .game__answer::after {
-    top: 49.4%;
-    border-top: 2px solid var(--Black-40);
+  .game__answer {
+    width: 614px;
+    height: 112px;
   }
 }
 
