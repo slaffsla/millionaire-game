@@ -82,6 +82,7 @@ h1 span {
 .welcome-screen__button:focus,
 .welcome-screen__button:active {
   background-color: var(--Orange-120);
+  background-image: '../images/Selected.svg'
 }
 
 /* || GAME */
@@ -94,8 +95,8 @@ h1 span {
   right: 1rem;
   top: 1rem;
   background-repeat: no-repeat;
-  background-image: url(../images/Menu.png);
   transition: background-color 0.2s ease-in-out;
+  z-index: 999;
 }
 
 .menu:hover {
@@ -103,19 +104,16 @@ h1 span {
   transform: rotate(2deg);
 }
 
-.back-button:hover {
-  background-image: url(../images/Close.svg);
-}
-
 .game {
   height: 100%;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
   height: 100vh;
   background-color: var(--Background);
-  overflow-y: hidden;
+  overflow: hidden;
   height: 100vh;
 }
 
@@ -137,79 +135,101 @@ h1 span {
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .game__answer {
-  width: 400px;
-  height: 56px;
-  font-size: 18px;
-  background-image: url('../images/Inactive.svg');
-  background-repeat: no-repeat;
+  width: 320px;
+  height: 57px;
+  font-size: 1rem;
   color: var(--Black-100);
   cursor: pointer;
   font-weight: 400;
   text-align: left;
-  text-indent: 25px;
   cursor: pointer;
-  margin: auto;
-  background-color: rgb(172, 172, 188);
-  padding: 2rem auto;
-  background-size: cover;
-  background-size: contain;
+  margin: 8px;
   display: flex;
   align-items: center;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: contain;
 }
 
-.game__answer p {
+.game__answer h5 {
+  font-size: 16px;
+  text-indent: -200px;
+  font-weight: 600;
   color: var(--Orange-100);
 }
 
-.game__answer::before {}
-
-.game__answer:hover {
-  background-image: url(../images/Hover.svg);
+.game__answer p {
+  text-indent: .5em;
+  font-weight: 400;
+  color: var(--Black-100);
 }
 
-.game__answer:active {
-  background-image: url(../images/Hover.svg);
+.game__answer::before,
+.game__answer::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  border-top: 1px solid var(--Black-40);
+  transform: translateY(0px);
 }
 
-.game__answer:hover {
-  background-image: url(../images/Hover.svg);
+.game__answer::before {
+  left: -100%;
+  width: 100%;
 }
 
-.game__answer:hover {
-  background-image: url(../images/Hover.svg);
+.game__answer::after {
+  right: -200%;
+  width: 200%;
 }
 
-
-
-/*    ________________________________________________ */
-
-
-button::hover, button:focus {
-  border-color: #187dbc;
+.game__answer--text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: violet;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-button::active {
-  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, .2);
+.game__answer::active {
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 3.9);
   top: 1px;
 }
 
-button.correct {
-  background-color: #28a745;
-  /* green */
+.final-screen__text{
+  color: var(--Black-100);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 116%;
+  opacity: 0.5;
 }
 
-button.incorrect {
-  background-color: #dc3545;
-  /* red */
-}
+
 
 
 /* || BIGGER SCREENS GO FURTHER */
 
 @media only screen and (min-width: 768px) {
+
+  .game {
+    display: flex;
+  }
+  .menu {
+    flex: 0 0 20%;
+  }
+  .question {
+    flex: 1;
+  }
+
 
   .welcome-screen {
     flex-direction: row;
@@ -244,11 +264,28 @@ button.incorrect {
     min-height: 3rem;
   }
 
-  .game__answer:focus {
+  /* .game__answer:focus {
     background-color: #f5a623;
     color: #fff;
+  } */
+
+ /*  .game__answer {
+    width: 640px;
+    height: 113px;
+  } */
+
+  .game__answer::before,
+  .game__answer::after {
+    top: 49.4%;
+    border-top: 2px solid var(--Black-40);
+  }
+
+  .menu {
+    display: none;
   }
 }
+
+
 
 @media only screen and (min-width: 992px) {
 

@@ -4,6 +4,8 @@ import WelcomeScreen from "./components/WelcomeScreen";
 import GameScreen from "./components/GameScreen";
 import FinalScreen from "./components/FinalScreen";
 
+
+
 function App() {
   const [gameState, setGameState] = useState("start");
   const [finalScore, setFinalScore] = useState(0);
@@ -12,10 +14,11 @@ function App() {
     setGameState("game");
   };
 
-  const endGame = (correctAnswersNr: number) => {
+  const endGame = (finalScr: number) => {
+    setFinalScore(finalScr)
     setGameState("end");
-    setFinalScore(BasePrize*2^correctAnswersNr);
   };
+
 
   let screen: JSX.Element;
   switch (gameState) {
@@ -26,7 +29,7 @@ function App() {
       screen = <GameScreen onEnd={endGame} questions={QuestionsData} />;
       break;
     case "end":
-      screen = <FinalScreen score={finalScore} />;
+      screen = <FinalScreen score={finalScore} onStart={startGame} />;
       break;
     default:
       screen = <WelcomeScreen onStart={startGame} />;

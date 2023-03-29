@@ -1,21 +1,22 @@
-export interface Question {
+export interface WelcomeScreenProps {
+  onStart: () => void;
+}
+
+export interface GameScreenProps {
+  onEnd: (finalScore: number) => void;
+  questions: QuestionData[];
+}
+
+export interface FinalScreenProps {
+  score: number;
+  onStart: () => void;
+}
+
+export interface QuestionData {
   id: string;
   question: string;
   answers: string[];
   correctIndex: number;
 }
 
-export interface WelcomeScreenProps {
-  onStart: () => void;
-}
-
-export interface GameScreenProps {
-  onEnd: (score: number) => void;
-  questions: Question[];
-}
-
-export interface FinalScreenProps {
-  score: number;
-}
-
-export interface QuestionsDataType extends Array<Question> {}
+export type QuestionsDataType = QuestionData[];
