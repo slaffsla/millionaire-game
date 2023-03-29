@@ -4,10 +4,11 @@ import { BasePrize, QuestionsData } from '../assets/ReactQuestions';
 import { GameScreenProps } from "../types";
 import InactiveImage from '../images/Inactive.svg'
 import CorrectImage from '../images/Correct.svg'
+import Prise_Inactive_Desktop from '../images/Prise_Inactive_Desktop.svg'
+import Prise_Active_Desktop from '../images/Prise_Active_Desktop.svg'
 import WrongImage from '../images/Wrong.svg'
-//import SelectedImage from '../images/Selected.svg'
 import HoverImage from '../images/Hover.svg'
-import Menu from '../images/Menu.svg'
+import MenuOpen from '../images/Menu.svg'
 import MenuClose from '../images/Close.svg'
 
 import "../styles/App.css";
@@ -22,24 +23,18 @@ const GameScreen = ({onEnd}: GameScreenProps) => {
 
   const currentQuestion = QuestionsData[questionIndex];
 
-  const [menuIsShown, setMenuIsShown] = useState(true);
   const isDesktop = useMediaQuery('(min-width:768px)');
-  const [showProgressBar, setShowProgressBar] = useState(false);
-  const handleShowProgressBar = () => {
-    setShowProgressBar(true);
-  };
 
+  const [menuIsShown, setMenuIsShown] = useState(isDesktop);
 
+  console.log("showMenu: ", menuIsShown)
 
   const getAnswerImage = (index: number) => {
     if (currentAnsIsCorrect===1 && index === currentQuestion.correctIndex) {
-      console.log("getAnswerImage: corr")
       return CorrectImage;
     } else if (currentAnsIsCorrect === -1 && index === currentAns) {
-      console.log("getAnswerImage: wrong!!!!!!!!!!!!!")
       return WrongImage;
     } else if (isHover[index]) {
-      console.log("getAnswerImage: hover")
       return HoverImage;
     } else {
       return InactiveImage;
@@ -74,7 +69,6 @@ const GameScreen = ({onEnd}: GameScreenProps) => {
     setIsHover(prevState => {
       const newHoverState = [...prevState];
       newHoverState[answerNr] = true;
-      console.log("NewHoverState after Enter: ", newHoverState)
       return newHoverState;
     });
   };
@@ -84,18 +78,16 @@ const GameScreen = ({onEnd}: GameScreenProps) => {
     setIsHover(prevState => {
       const newHoverState = [...prevState];
       newHoverState[answerNr] = false;
-      console.log("Left with CurrentAnswerNr: ", answerNr)
-      console.log("NewHoverState after Exit: ", newHoverState)
       return newHoverState;
     });
   };
   
   return (
     <div className="game">
-      {!isDesktop && !showProgressBar &&
+      {!isDesktop &&
       <div
         className="menu" onClick={() => toggleMenu()}>
-        <img src={menuIsShown? MenuClose : Menu}/>
+        <img src={menuIsShown? MenuClose : MenuOpen}/>
       </div>}
       {((!isDesktop && !menuIsShown ) || isDesktop) && <div>
         <div className="game__question">{currentQuestion.question}</div>
@@ -116,7 +108,7 @@ const GameScreen = ({onEnd}: GameScreenProps) => {
         </div>
       </div>}
       <div className="progress-bar">
-        {(isDesktop || (!isDesktop && menuIsShown)) && <ProgressBar totalPrize={score}/>}
+        {(isDesktop || menuIsShown) && <ProgressBar totalPrize={score}/>}
       </div>
     </div>
   );

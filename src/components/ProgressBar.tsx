@@ -10,26 +10,30 @@ interface ProgressBarProps {
 
 const ProgressBarWrapper = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 25%;
+  top: 10%;
+  width: 100%;
+  @media (min-width: 768px) {
+    right: 2%;
+    width: 25%;
+  }
 `;
 
 const ProgressBarContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  height: 100%;
   justify-content: flex-end;
   margin-bottom: 3rem;
+  @media (max-width: 767px) {
+    align-items: center;
+  }
 `;
 
 const ProgressBarItem = styled.div<{ isActive: boolean; isPast: boolean }>`
   display: flex;
   align-items: center;
-  height: 30px;
-  margin-bottom: 5px;
-  color: ${(props) => (props.isActive ? "orange" : props.isPast ? "#ccc" : "#ddd")};
+  justify-content: center;
+  height: 40px;
+  color: ${(props) => (props.isActive ? "#FF8B37" : props.isPast ? "#D0D0D8" : "#1C1C21")};
   background-image: url(${(props) => (props.isActive ? prizeActive : prizeInactive)});
   background-repeat: no-repeat;
   background-position: center;
@@ -48,22 +52,20 @@ const populateArrayWithPrizes = (initialPrize:number, totalItems:number) => {
 
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ totalPrize }) => {
- // const progressHeight = (currentPrize / totalPrize) * 100;
   const items = populateArrayWithPrizes(BasePrize, QuestionsData.length)
 
   return (
-    <ProgressBarWrapper className="progress-bar">
+    <ProgressBarWrapper>
       <ProgressBarContainer>
         {items.map((item:number, index:number) => (
           <ProgressBarItem
             key={index}
             isActive={item===totalPrize}
-            isPast={item >= totalPrize}
+            isPast={item < totalPrize}
           >
-            {item}
+            <p>${item}</p>
           </ProgressBarItem>
         ))}
-        <div className="progress" style={{ color: 'red', backgroundColor: 'blue'  }} />
       </ProgressBarContainer>
     </ProgressBarWrapper>
   );
