@@ -4,8 +4,8 @@ import { BasePrize, QuestionsData } from '../assets/ReactQuestions';
 import { GameScreenProps } from "../types";
 import InactiveImage from '../images/Inactive.svg'
 import CorrectImage from '../images/Correct.svg'
-import Prise_Inactive_Desktop from '../images/Prise_Inactive_Desktop.svg'
-import Prise_Active_Desktop from '../images/Prise_Active_Desktop.svg'
+/* import Prise_Inactive_Desktop from '../images/Prise_Inactive_Desktop.svg'
+import Prise_Active_Desktop from '../images/Prise_Active_Desktop.svg' */
 import WrongImage from '../images/Wrong.svg'
 import HoverImage from '../images/Hover.svg'
 import MenuOpen from '../images/Menu.svg'
