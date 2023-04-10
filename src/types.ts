@@ -9,6 +9,7 @@ export interface GameScreenProps {
 
 export interface FinalScreenProps {
   score: number;
+  onStart: () => void;
 }
 
 export interface QuestionData {

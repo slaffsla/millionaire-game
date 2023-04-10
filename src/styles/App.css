@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;600&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;600&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 #root {
   --Orange-120: #E87928;
   --Orange-100: #FF8B37;
@@ -82,6 +82,7 @@ h1 span {
 .welcome-screen__button:focus,
 .welcome-screen__button:active {
   background-color: var(--Orange-120);
+  background-image: '../images/Selected.svg'
 }
 
 /* || GAME */
@@ -94,47 +95,48 @@ h1 span {
   right: 1rem;
   top: 1rem;
   background-repeat: no-repeat;
-  background-image: url(../images/Menu.png);
   transition: background-color 0.2s ease-in-out;
+  z-index: 999;
 }
 
 .menu:hover {
-  background-color: var(--Black-40);
   transform: rotate(2deg);
 }
-/* 
-.back-button:hover {
-  background-image: url(../images/Close.svg);
-} */
 
 .game {
-  height: 100%;
+  height: 100vh;
   max-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
-  height: 100vh;
-  background-color: var(--Background);
+  background-color: var(--Black-5);
   overflow: hidden;
-  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.game__qa--wrapper {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
 }
 
 .game__question {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 2rem;
-  text-align: center;
-  margin-bottom: 10vh;
-  margin-top: 16vh;
-  margin-right: 2vw;
-  font-size: 18px;
+  text-align:center;
+  margin-left: 4vw;
   font-weight: 600;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .game__answers {
   display: flex;
   flex-direction: column;
-  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -142,106 +144,62 @@ h1 span {
 }
 
 .game__answer {
-  width: 320px;
-  height: 57px;
-  font-size: 1rem;
+  display: flex;
+  height:auto;
   color: var(--Black-100);
   cursor: pointer;
   font-weight: 400;
-  text-align: left;
-  cursor: pointer;
   margin: 8px;
-  display: flex;
   align-items: center;
+  justify-content: flex-start;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
-  object-fit: contain;
+}
+
+.game__answer--text {
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  justify-content: center;
+  width: auto;
 }
 
 .game__answer h5 {
-  font-size: 16px;
-  text-indent: -200px;
+  font-size: 1.2rem;
+  text-indent: 50px;
   font-weight: 600;
   color: var(--Orange-100);
 }
 
 .game__answer p {
-  text-indent: .5em;
-  font-weight: 400;
+  margin-left: 70px;
+  font-weight: 500;
+  font-size: 1.4rem;
   color: var(--Black-100);
-}
-
-.game__answer::before,
-.game__answer::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  height: 1px;
-  border-top: 1px solid var(--Black-40);
-  transform: translateY(0px);
-}
-
-.game__answer::before {
-  left: -100%;
-  width: 100%;
-}
-
-.game__answer::after {
-  right: -200%;
-  width: 200%;
-}
-
-.game__answer--text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: violet;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-align: center;
+  text-align: left;
 }
 
 
-
-
-
-.game__answer::active {
-  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 3.9);
+//check
+.game__answer::active, .game__answer::focus {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   top: 1px;
 }
 
+.final-screen__text{
+  color: var(--Black-100);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 116%;
+  opacity: 0.5;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* || BIGGER SCREENS GO FURTHER */
+/* || BIGGER SCREENS GO FURTHER, FOLLOWED BY RULES FOR MOBILE ONLY */
 
 @media only screen and (min-width: 768px) {
-
-  .game {
-    display: flex;
-  }
-  .menu {
-    flex: 0 0 20%;
-  }
-  .question {
-    flex: 1;
-  }
-
 
   .welcome-screen {
     flex-direction: row;
@@ -261,7 +219,6 @@ h1 span {
   }
 
   .welcome-screen__title {
-
     font-size: 40px;
     margin-top: 8vh;
     margin-bottom: 7vh;
@@ -286,11 +243,63 @@ h1 span {
     height: 113px;
   } */
 
+ /*  .game__answers {
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 20px;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 422px 422px;
+    padding: 10px;
+  }
+  .game__answer {
+    padding: 20px;
+  } */
+
+  .game__qa--wrapper {
+    align-items: flex-start;
+  }
+
+  .game__answers {
+    display: grid;
+    gap: 0px;
+    grid-template-columns: 1fr 1fr;
+    width: 64%;
+    align-items: center;
+    margin-top: 18%;
+  }
+  /* .game__answers {
+    display: grid;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 68%;
+    align-content: flex-start;
+    margin-left: 2rem;
+    flex: 0 1 75%;
+  } */
+
+  .game__answer {
+    display: flex;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 35px;
+  }
+  
+  .game__answer img {
+    width: inherit;
+    object-fit: contain;
+  }
+
+ /*
+  .progress-bar {
+    background-color: var(--White-100)
+  }
   .game__answer::before,
   .game__answer::after {
     top: 49.4%;
     border-top: 2px solid var(--Black-40);
-  }
+  } */
 }
 
 
@@ -311,4 +320,49 @@ h1 span {
   .welcome-screen__title {
     font-size: 56px;
   }
+}
+
+/* || ONLY FOR MOBILE SCREENS*/
+
+@media only screen and (max-width: 768px) {
+
+  .game__answer::before,
+  .game__answer::after {
+    content: '';
+    position: absolute;
+    top: 49%;
+    height: 1px;
+    border-top: 1px solid var(--Black-40);
+  }
+
+  .game__answer::before {
+    left: -100%;
+    width: 100%;
+  }
+
+  .game__answer::after {
+    right: -200%;
+    width: 200%;
+  }
+
+
+  /* .progress-bar-item::before,
+  .progress-bar-item::after {
+    content: '';
+    position: absolute;
+    top: 49%;
+    height: 1px;
+    border-top: 1px solid var(--Black-40);
+    transform: translateY(11.5px);
+  }
+
+  .progress-bar-item::before {
+    left: -77%;
+    width: 100%;
+  }
+
+  .progress-bar-item::after {
+    right: -77%;
+    width: 100%;
+  } */
 }

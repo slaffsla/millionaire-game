@@ -8,12 +8,12 @@ export const QuestionsData: QuestionsDataType = [
     "id": "1",
     "question": "What is the virtual DOM?",
     "answers": [
-      "A residual copy of the actual DOM",
-      "A way to speed up server interactions",
-      "A way to update the actual DOM efficiently",
+      "A copy of the DOM",
+      "A way to speed up apps",
+      "Update the DOM efficiently",
       "All of the above"
     ],
-    "correctIndex": 2
+    "correctIndex": 3
   },
   {
     "id": "2",

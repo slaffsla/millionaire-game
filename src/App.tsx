@@ -15,7 +15,6 @@ function App() {
   };
 
   const endGame = (finalScr: number) => {
-    console.log("End >>>", finalScore)
     setFinalScore(finalScr)
     setGameState("end");
   };
@@ -30,7 +29,7 @@ function App() {
       screen = <GameScreen onEnd={endGame} questions={QuestionsData} />;
       break;
     case "end":
-      screen = <FinalScreen score={finalScore} />;
+      screen = <FinalScreen score={finalScore} onStart={startGame} />;
       break;
     default:
       screen = <WelcomeScreen onStart={startGame} />;
