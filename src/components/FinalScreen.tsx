@@ -4,8 +4,14 @@ import hand from '../images/hand 1.svg'
 import '../styles/App.css';
 
 function FinalScreen({ score, onStart }: FinalScreenProps) {
+
+  // Undo background for FinalScreen
+  const BackgroundStyle = {
+    background: "none"
+  }
+  
   return (
-    <div className="welcome-screen">
+    <div className="welcome-screen" style={BackgroundStyle}>
         <img src={hand} alt="Welcoming Hand" className="welcome-screen__image" />
       <div className="welcome-screen__container">
         <h3 className="final-screen__text">Total score:</h3>
