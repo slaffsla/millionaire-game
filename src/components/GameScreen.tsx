@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMediaQuery } from '@material-ui/core';
 import { BasePrize, QuestionsData } from '../assets/ReactQuestions';
 import { GameScreenProps } from "../types";
@@ -28,8 +28,6 @@ const GameScreen = ({onEnd}: GameScreenProps) => {
 
   const [menuIsShown, setMenuIsShown] = useState(isDesktop);
 
-  console.log("showMenu: ", menuIsShown)
-
   const getAnswerImage = (index: number) => {
     if (currentAnsIsCorrect===1 && index === currentQuestion.correctIndex) {
       return CorrectImage;
@@ -46,33 +44,38 @@ const GameScreen = ({onEnd}: GameScreenProps) => {
     setMenuIsShown(!menuIsShown);
   }
 
+  const nextScore = (prevScore: number) => {
+    return questionIndex === 8 ? 125000 : prevScore * 2
+  }
+
   const handleAnswer = (answerIndex: number) => {
     if (!isDisabled) {
       // Disable answer buttons while processing answer
       setIsDisabled(true);
-
       setCurrentAns(answerIndex);
-      if (answerIndex === currentQuestion.correctIndex) {
-        // Set to initial value on first successful attempt
-        questionIndex === 0 ? setScore(BasePrize) : setScore(questionIndex === 8 ? 125000 : score * 2);
-        console.log(score)
-        setCurrentAnsIsCorrect(1)
-        setTimeout(() => {
-          setQuestionIndex(questionIndex + 1);
-          setCurrentAnsIsCorrect(0);
-          setIsDisabled(false); // Re-enable answer buttons after processing answer
-        }, 1350);
-      } else {
-        setCurrentAnsIsCorrect(-1);
-        setTimeout(() => {
-          onEnd(score);
-        }, 1350)
-      }
+          if (answerIndex === currentQuestion.correctIndex) {
+            // Set to initial value on first successful attempt or double prev score
+              questionIndex === 0 ? setScore(BasePrize) : setScore(nextScore(score));
+            setIsDisabled(true);
+            setCurrentAnsIsCorrect(1);
+            setTimeout(() => {
+              setCurrentAnsIsCorrect(0);
+              if (questionIndex >= QuestionsData.length-1) {
+                onEnd(nextScore(score)); //nextScore because state change is not reflected yet here
+              } else setQuestionIndex(questionIndex + 1);
+              setIsDisabled(false); // Re-enable answer buttons after processing answer
+            }, 350);
+          } else {
+            setCurrentAnsIsCorrect(-1);
+            setIsDisabled(true);
+            setTimeout(() => {
+              onEnd(score);
+            }, 350)
+          }
     }
   };
   
   const handleMouseEnter = (answerNr:number) => {
-    console.log("Entered, CurrentAnswerNr: ", answerNr)
     if (!isDisabled) {
       setIsHover(prevState => {
         const newHoverState = [...prevState];
