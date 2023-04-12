@@ -48,8 +48,9 @@
   margin-top: 12vh;
   margin-bottom: 20vh;
   margin-right: 2vw;
-  font-size: 40px;
+  font-size: 3rem;
   font-weight: 600;
+  text-align: center;
 }
 
 h1 span {
@@ -58,6 +59,7 @@ h1 span {
 
 .welcome-screen__button {
   margin-bottom: 2rem;
+  margin-top: 3rem;
   padding: 1rem 2rem;
   background-color: var(--Orange-100);
   border: none;
@@ -180,22 +182,34 @@ h1 span {
   text-align: left;
 }
 
-
-//check
-.game__answer::active, .game__answer::focus {
+.game__answer:active, .game__answer:focus, .game__answer:hover {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  top: 1px;
 }
 
-.final-screen__text{
+/* || FINAL SCREEN */
+
+.final-screen__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.final-screen__text {
   color: var(--Black-100);
   font-weight: 600;
   font-size: 32px;
   line-height: 116%;
   opacity: 0.5;
+  margin-bottom: 1rem;
+  margin-top: 11rem;
 }
 
-
+.final-screen__title {
+  margin-bottom: 4rem;
+  margin-right: 2vw;
+  font-size: 3rem;
+  font-weight: 600;
+}
 
 /* || BIGGER SCREENS GO FURTHER, FOLLOWED BY RULES FOR MOBILE ONLY */
 
@@ -216,44 +230,23 @@ h1 span {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    margin-right: 17%;
   }
 
   .welcome-screen__title {
-    font-size: 40px;
-    margin-top: 8vh;
-    margin-bottom: 7vh;
+    font-size: 2.5rem;
+    margin-bottom: 3vh;
     margin-right: 5vw;
+    text-align: left;
   }
 
   .welcome-screen__button {
-    margin-bottom: 1rem;
+    margin-bottom: 5rem;
     font-size: 14px;
     line-height: 116%;
     min-width: 26vw;
     min-height: 3rem;
   }
-
-  /* .game__answer:focus {
-    background-color: #f5a623;
-    color: #fff;
-  } */
-
- /*  .game__answer {
-    width: 640px;
-    height: 113px;
-  } */
-
- /*  .game__answers {
-    display: grid;
-    grid-auto-flow: row;
-    grid-gap: 20px;
-    grid-template-rows: 100px 100px;
-    grid-template-columns: 422px 422px;
-    padding: 10px;
-  }
-  .game__answer {
-    padding: 20px;
-  } */
 
   .game__qa--wrapper {
     align-items: flex-start;
@@ -267,15 +260,6 @@ h1 span {
     align-items: center;
     margin-top: 18%;
   }
-  /* .game__answers {
-    display: grid;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 68%;
-    align-content: flex-start;
-    margin-left: 2rem;
-    flex: 0 1 75%;
-  } */
 
   .game__answer {
     display: flex;
@@ -291,18 +275,22 @@ h1 span {
     object-fit: contain;
   }
 
- /*
-  .progress-bar {
-    background-color: var(--White-100)
+  .final-screen__container {
+    margin-right: 20%;
+    align-items: left;
+    align-items: flex-start;
   }
-  .game__answer::before,
-  .game__answer::after {
-    top: 49.4%;
-    border-top: 2px solid var(--Black-40);
-  } */
+  
+  .final-screen__text {
+    margin-bottom: 1rem;
+
+  }
+
+  .final-screen__title {
+    font-size: 2.5rem;
+    margin-bottom: 3vh;
+  }
 }
-
-
 
 @media only screen and (min-width: 992px) {
 
@@ -312,14 +300,10 @@ h1 span {
   }
 
   .welcome-screen__container {
-    margin-right: 1vw;
     min-width: 30vh;
     justify-content: space-around;
   }
 
-  .welcome-screen__title {
-    font-size: 56px;
-  }
 }
 
 /* || ONLY FOR MOBILE SCREENS*/
@@ -344,25 +328,4 @@ h1 span {
     right: -200%;
     width: 200%;
   }
-
-
-  /* .progress-bar-item::before,
-  .progress-bar-item::after {
-    content: '';
-    position: absolute;
-    top: 49%;
-    height: 1px;
-    border-top: 1px solid var(--Black-40);
-    transform: translateY(11.5px);
-  }
-
-  .progress-bar-item::before {
-    left: -77%;
-    width: 100%;
-  }
-
-  .progress-bar-item::after {
-    right: -77%;
-    width: 100%;
-  } */
 }
