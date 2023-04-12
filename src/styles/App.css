@@ -58,7 +58,7 @@ h1 span {
 }
 
 .welcome-screen__button {
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
   margin-top: 3rem;
   padding: 1rem 2rem;
   background-color: var(--Orange-100);
