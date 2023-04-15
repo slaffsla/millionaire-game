@@ -21,6 +21,12 @@
   font-family: "Inter", sans-serif;
 }
 
+*, 
+*::before,
+*::after {
+box-sizing:  border-box;
+}
+
 /* || WELCOME AND END GAME SCREENS */
 .welcome-screen {
   overflow: hidden;
