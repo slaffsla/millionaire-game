@@ -2,10 +2,11 @@
 A web app "Who wants to be a Millionaire" built with TS and React.js. Responsive design.
 
 
-https://user-images.githubusercontent.com/7899896/231478718-878b1f35-6dd2-473d-90b4-0b67ec393f27.mov
-
 Try it Live:
                   https://millionaire-who-wants.web.app/
+                  
+https://user-images.githubusercontent.com/7899896/231478718-878b1f35-6dd2-473d-90b4-0b67ec393f27.mov
+
                   
 <img width="1280" alt="Screen Shot 2023-04-16 at 15 28 38" src="https://user-images.githubusercontent.com/7899896/232310053-3aea230b-583c-44ff-9873-c65e8aa5f9f6.png">
 <img width="603" alt="Screen Shot 2023-04-16 at 15 29 00" src="https://user-images.githubusercontent.com/7899896/232310067-f57e3916-0029-4c2d-88d8-483fc3c8b637.png">
