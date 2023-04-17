@@ -116,7 +116,7 @@ const GameScreen = ({onEnd}: GameScreenProps) => {
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
-              <img src={getAnswerImage(index)} alt="Answer Button" />
+              <img src={getAnswerImage(index)} alt="Answer Button" className="img_answer" />
               <h5 className="game__answer--text">{String.fromCharCode(index+65).toUpperCase()}</h5>
               <p className="game__answer--text">{answer}</p>
             </div>
