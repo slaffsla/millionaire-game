@@ -51,10 +51,8 @@ box-sizing:  border-box;
 }
 
 .welcome-screen__title {
-  margin-top: 12vh;
-  margin-bottom: 20vh;
-  margin-right: 2vw;
-  font-size: 3rem;
+  margin: 10% 5%;
+  font-size: 2.2rem;
   font-weight: 600;
   text-align: center;
 }
@@ -64,8 +62,7 @@ h1 span {
 }
 
 .welcome-screen__button {
-  margin-bottom: 5rem;
-  margin-top: 3rem;
+  margin-bottom: -5rem;
   padding: 1rem 2rem;
   background-color: var(--Orange-100);
   border: none;
@@ -91,6 +88,30 @@ h1 span {
 .welcome-screen__button:active {
   background-color: var(--Orange-120);
   background-image: '../images/Selected.svg'
+}
+
+/* || FINAL SCREEN */
+
+.final-screen__image {
+  margin-top: 1vh;
+  max-height: 30vh;
+}
+
+.final-screen__text {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 116%;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.final-screen__title {
+  margin-bottom: 6.5rem;
+  margin-top: 1rem;
+  margin-right: 2vw;
+  font-size: 3rem;
+  font-weight: 600;
 }
 
 /* || GAME */
@@ -192,31 +213,6 @@ h1 span {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-/* || FINAL SCREEN */
-
-.final-screen__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.final-screen__text {
-  color: var(--Black-100);
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 116%;
-  opacity: 0.5;
-  margin-bottom: 1rem;
-  margin-top: 11rem;
-}
-
-.final-screen__title {
-  margin-bottom: 4rem;
-  margin-right: 2vw;
-  font-size: 3rem;
-  font-weight: 600;
-}
-
 /* || BIGGER SCREENS GO FURTHER, FOLLOWED BY RULES FOR MOBILE ONLY */
 
 @media only screen and (min-width: 768px) {
@@ -232,28 +228,42 @@ h1 span {
   }
 
   .welcome-screen__container {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
-    margin-right: 17%;
+    width: 40%;
   }
 
   .welcome-screen__title {
-    font-size: 2.5rem;
-    margin-bottom: 3vh;
-    margin-right: 5vw;
+    margin-bottom: -3vh;
     text-align: left;
   }
 
   .welcome-screen__button {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     font-size: 14px;
     line-height: 116%;
     min-width: 26vw;
     min-height: 3rem;
+    margin-top: 3rem;
   }
 
+  .final-screen__container {
+    margin-right: 10%;
+  }
+  
+  .final-screen__text {
+    font-size: 1.2rem;
+  }
+
+  .final-screen__title {
+    margin-bottom: -9rem;
+    margin-left: 0rem;
+    font-size: 2.5rem;
+    margin-bottom: 3vh;
+  }
+
+  .final-screen__button {
+    margin: 0px 0px;
+  }
   .game__qa--wrapper {
     align-items: flex-start;
   }
@@ -279,22 +289,6 @@ h1 span {
   .game__answer img {
     width: inherit;
     object-fit: contain;
-  }
-
-  .final-screen__container {
-    margin-right: 20%;
-    align-items: left;
-    align-items: flex-start;
-  }
-  
-  .final-screen__text {
-    margin-bottom: 1rem;
-
-  }
-
-  .final-screen__title {
-    font-size: 2.5rem;
-    margin-bottom: 3vh;
   }
 }
 
